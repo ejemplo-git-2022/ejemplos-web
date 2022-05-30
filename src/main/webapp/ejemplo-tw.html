@@ -42,7 +42,13 @@
 	<div class="container">
 		<h1>Ejemplo form</h1>
 		<form>
-			<input type="text" name="ejemplo-input" placeholder="Ejemplo input" size="20" maxlength="15"><br>
+		
+			<div class="form-group row">
+		    	<label class="col-sm-2 col-form-label">Ejemplo input</label>
+		    	<div class="col-sm-10">
+					<input type="text" class="form-control" name="ejemplo-input" placeholder="Ejemplo input" size="20" maxlength="15"><br>
+		    	</div>
+		  	</div>
 			<input type="number" value="0" min="0" max="99"><br>
 			<input type="password"><br>
 			<textarea rows="10" cols="20"></textarea><br>
@@ -51,13 +57,13 @@
 				<option value="dos" selected="selected">Dos</option>
 				<option value="tres">Tres</option>
 			</select><br>
-			<input type="checkbox" checked="checked" value="uno">Uno<br>
-			<input type="checkbox" checked="checked" value="dos">Dos<br>
+			<input type="checkbox" value="uno">Uno<br>
+			<input type="checkbox" value="dos">Dos<br>
 			<input type="checkbox" checked="checked" value="tres">Tres<br>
 			<input type="radio" name="ejemplo-radio" checked="checked" value="uno">Uno<br>
 			<input type="radio" name="ejemplo-radio" value="dos">Dos<br>
 			<input type="radio" name="ejemplo-radio" value="tres">Tres<br>
-			<button type="submit">Enviar datos</button>
+			<button type="submit" class="btn btn-primary">Enviar datos</button>
 		</form>
 	</div>
 
