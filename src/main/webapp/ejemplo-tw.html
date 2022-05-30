@@ -55,12 +55,26 @@
 					<input type="text" id="campo2" class="form-control" name="campo2"  placeholder="Campo 2" size="20" maxlength="15"><br>
 		    	</div>
 		  	</div>
+
+			<div class="form-group row">
+		    	<label class="col-sm-2 col-form-label">Operacion</label>
+		    	<div class="col-sm-10">
+					<select id="campoOperacion" class="form-control">
+						<option value="sumar">Sumar</option>
+						<option value="restar">Restar</option>
+						<option value="multiplicar">Multiplicar</option>
+						<option value="dividir">Dividir</option>
+					</select>
+		    	</div>
+		  	</div>		  	
+		  	
 			<div class="form-group row">
 		    	<label class="col-sm-2 col-form-label">Total</label>
 		    	<div class="col-sm-10">
 					<input type="text" id="campoTotal" class="form-control" name="campoTotal" readonly="readonly" value="0" size="20" maxlength="15"><br>
 		    	</div>
 		  	</div>
+		  	
 
 		  	<div id="divContenido"></div>
 			<button type="button" onclick="calcular()">Calcular</button>
