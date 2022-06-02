@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+	.error {
+		color: #ff0000;
+		font-weight: 'bold';
+	}
+</style>
+<script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/messages_es_AR.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		console.log('Listo puedo trabajar....');
+		
+		$('#botonEnviar').on('click', function() {
+			console.log('click sobre el boton.......');
+			
+			if($('#formParaValidar').valid() == true) {
+				console.log('el form es valido.........');
+
+			}
+
+		});
+	});
+</script>
+</head>
+<body >
+	<form id="formParaValidar">
+		<input type="email" required>
+		<input type="text" class="digits" required>
+		<button id="botonEnviar"  type="button">Enviar</button>
+	</form>
+
+</body>
+</html>

@@ -3,28 +3,37 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
-		<style type="text/css">
-			h1 {
-				font-size: 25px;
-				color: red;
-			}
-			
-			.texto-general {
-				font-size: 14px;
-				color: blue;
-			}
-			
-			#texto-unico {
-				color: green;
-				border: 1px solid #C00;
-			}
-		</style>
 		<script>
-			function saludar() {
-				console.log('Se ejecuto el evento click del boton...');
-				var divContenido = document.getElementById('div-contenido');
-				divContenido.innerHTML = '<b>Hola!!!!</b>';
+
+			var nombre = 'juan';
+
+			function saludar1() {
+	
 			}
+
+			function saludar2() {
+				var edad = 34;
+				console.log(nombre);
+				var divContenido = document.getElementById('div-contenido');
+				divContenido.innerHTML = 'El nombre es ' + nombre; 
+				
+			}
+			
+			
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('Listo cargo la web...');
+				console.log(nombre);
+				//saludar2();
+				
+				var buttonSaludar = document.getElementById('buttonSaludar');
+				buttonSaludar.addEventListener('click', function() {
+					saludar2();
+				});
+				
+			});
+			
+			
+
 		</script>
 	</head>
 	<body>
@@ -32,34 +41,7 @@
 		<div id="div-contenido">
 			Caja contenedora
 		</div>
-		<button type="button" onclick="saludar()">Boton saludar</button>
+		<button type="button" id="buttonSaludar">Boton saludar</button>
 	
-		<h1>Hola mundo web</h1>
-		<h2>Todo bien?</h2>
-		<p id="texto-unico">Soy un texto1</p>
-		<p class="texto-general">Soy un texto2</p>
-		<a href="https://www.google.com">Ir a google</a><br><br>
-		<ul>
-			<li>UNO</li>
-			<li class="texto-general">DOS</li>
-			<li>TRES</li>			
-		</ul>
-		<table border="1">
-			<tr>
-				<th>Uno</th>
-				<th>Dos</th>
-				<th>Tres</th>
-			</tr>
-			<tr>
-				<td>Campo1</td>
-				<td>Campo2</td>
-				<td>Campo3</td>
-			</tr>
-			<tr>
-				<td>Campo1</td>
-				<td>Campo2</td>
-				<td>Campo3</td>
-			</tr>
-		</table>
 	</body>
 </html>

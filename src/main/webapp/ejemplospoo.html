@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<script src="./js/handlebars.js"></script>
+	
+	<script id="tmp-registro" type="text/x-handlebars-template">
+		{{#each items}}
+		<tr>
+			<td>{{idProducto}}</td>
+			<td>{{nombre}}</td>
+			<td>{{precio}}</td>
+		</tr>
+		{{/each}}
+	</script>
+	
+</head>
+<body>
+	<table id="tabla-productos"></table>
+
+	<script>
+		var source = document.getElementById("tmp-registro").innerHTML;
+		var template = Handlebars.compile(source);
+		var productos = { items: [
+				{ idProducto: 1242, nombre: "Producto1", precio: 100 },
+				{ idProducto: 4532, nombre: "Producto1", precio: 200 },
+				{ idProducto: 24534, nombre: "Producto1", precio: 300 }
+			]
+		};
+		var htmlGenerado = template(productos);
+		
+		document.getElementById('tabla-productos').innerHTML = htmlGenerado;
+		console.log(htmlGenerado);
+	</script>
+</body>
+</html>
