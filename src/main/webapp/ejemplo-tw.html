@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="./js/bootstrap.js"></script>
 		<script src="./js/handlebars.js"></script>
 		<script type="text/javascript" src="./js/general.js"></script>
+		<script type="text/javascript" src="./js/bootbox.all.min.js"></script>
 		
 		<script id="tmp-registro" type="text/x-handlebars-template">
 		{{#each items}}
@@ -64,24 +65,34 @@
 	</div>
 
 	<script>
-		var source = document.getElementById("tmp-registro").innerHTML;
-		var template = Handlebars.compile(source);
-		var productos = { items: [
+		
+		let source = document.getElementById("tmp-registro").innerHTML;
+		let template = Handlebars.compile(source);
+		let productos = { items: [
 				{ idProducto: 1242, nombre: "Producto1", precio: 100, cantidad: 10, subtotal: 100.0 },
 				{ idProducto: 4532, nombre: "Producto1", precio: 200, cantidad: 10, subtotal: 100.0 },
 				{ idProducto: 24534, nombre: "Producto1", precio: 300, cantidad: 10, subtotal: 100.0 }
 			]
 		};
 		
-		var htmlGenerado = template(productos);
+		let htmlGenerado = template(productos);
 		document.getElementById('tbody-productos').innerHTML = htmlGenerado;
 		
-		function borrarProducto(boton) {
-			var idProducto = boton.dataset.idProducto;
-			var productoRecuperado = productos.items.find(p => p.idProducto == idProducto);
-			var indexProductoParaBorrar = productos.items.indexOf(productoRecuperado);
-			productos.items.splice(indexProductoParaBorrar, 1);
-			document.getElementById('tbody-productos').innerHTML = template(productos);
+		function borrarProducto(boton) { 
+			
+			bootbox.confirm("Borramos el producto?", function(result){ 
+			    if(result == true) {
+					let idProducto = boton.dataset.idProducto;
+					let productoRecuperado = productos.items.find(p => p.idProducto == idProducto);
+					let indexProductoParaBorrar = productos.items.indexOf(productoRecuperado);
+					productos.items.splice(indexProductoParaBorrar, 1);
+					
+					//boton.parentNode.parentNode.remove();
+					document.getElementById('tbody-productos').innerHTML = template(productos);
+			    } 
+			});
+			
+
 		}
 	</script>
 
