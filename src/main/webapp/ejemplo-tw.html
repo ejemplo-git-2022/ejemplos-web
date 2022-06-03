@@ -53,6 +53,29 @@
 		
 	<div class="container">
 		<h1>Ejemplo factura JSON</h1>
+		<br>
+		
+		<form>
+		  <div class="form-row">
+		    <div class="col-2">
+		      <input type="text" id="campoIdProducto" class="form-control" placeholder="Id producto">
+		    </div>
+		    <div class="col-4">
+		      <input type="text"  id="campoNombre"  class="form-control" placeholder="Nombre">
+		    </div>
+		    <div class="col-2">
+		      <input type="number" id="campoPrecio"  class="form-control" placeholder="Precio">
+		    </div>
+		   	<div class="col-2">
+		      <input type="number" id="campoCantidad"  class="form-control" placeholder="Cantidad">
+		    </div>
+		   	<div class="col-2">
+				<button type="button" class="btn btn-primary" onclick="agregarProducto()">Agregar</button>
+		    </div>
+		  </div>
+		</form>
+		
+		<br>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -77,6 +100,26 @@
 		
 		let htmlGenerado = template(productos);
 		document.getElementById('tbody-productos').innerHTML = htmlGenerado;
+		
+		function agregarProducto() {
+			let campoIdProducto = document.getElementById('campoIdProducto');
+			let campoNombre = document.getElementById('campoNombre');
+			let campoPrecio = document.getElementById('campoPrecio');
+			let campoCantidad = document.getElementById('campoCantidad');
+			
+			let p = {
+				idProducto: campoIdProducto.value, 
+				nombre: campoNombre.value, 
+				precio: campoPrecio.value, 
+				cantidad: campoCantidad.value, 
+				subtotal: 0.0
+			};
+			
+			p.subtotal = p.precio * p.cantidad;
+			productos.items.push(p);
+			document.getElementById('tbody-productos').innerHTML = template(productos);
+			
+		}
 		
 		function borrarProducto(boton) { 
 			
