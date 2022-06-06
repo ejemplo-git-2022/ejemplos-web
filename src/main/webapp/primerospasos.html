@@ -3,35 +3,26 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
+		<script src="./js/axios.min.js"></script>
+		<script src="./js/jquery-3.6.0.js"></script>
+		
 		<script>
 
-			var nombre = 'juan';
-
-			function saludar1() {
-	
-			}
-
-			function saludar2() {
-				var edad = 34;
-				console.log(nombre);
-				var divContenido = document.getElementById('div-contenido');
-				divContenido.innerHTML = 'El nombre es ' + nombre; 
+			function primerLlamadaAjaxApiRest() {
+				let respuestaEsperada = axios.get('https://jsonplaceholder.typicode.com/posts/1');
 				
-			}
-			
-			
-			document.addEventListener('DOMContentLoaded', function() {
-				console.log('Listo cargo la web...');
-				console.log(nombre);
-				//saludar2();
-				
-				var buttonSaludar = document.getElementById('buttonSaludar');
-				buttonSaludar.addEventListener('click', function() {
-					saludar2();
+				respuestaEsperada.then(resp => {
+					let post = resp.data;
+					let divContenido = document.getElementById('div-contenido');
+					divContenido.innerHTML = '<b>' + post.title + '</b>';
 				});
 				
-			});
-			
+				/*
+				$.getJSON('https://jsonplaceholder.typicode.com/posts/1', function(respuestaJSON) {
+					let divContenido = document.getElementById('div-contenido');
+					divContenido.innerHTML = '<b>' + respuestaJSON.title + '</b>';
+				});*/
+			}
 			
 
 		</script>
@@ -39,9 +30,8 @@
 	<body>
 	
 		<div id="div-contenido">
-			Caja contenedora
 		</div>
-		<button type="button" id="buttonSaludar">Boton saludar</button>
+		<button onclick="primerLlamadaAjaxApiRest()" type="button" id="buttonSaludar">Boton saludar</button>
 	
 	</body>
 </html>

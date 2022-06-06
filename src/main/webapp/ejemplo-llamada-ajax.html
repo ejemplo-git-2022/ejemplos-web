@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	function llamarAjax() {
+		$.get('contenido-ajax.jsp', function(respuestaHTML) {
+			$('#resultadoAjax').html(respuestaHTML);
+		})
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="llamarAjax()">Llamar ajax</button>
+	<div id="resultadoAjax"></div>
+</body>
+</html>
